@@ -5,11 +5,14 @@ class Settings(BaseSettings):
     PROJECT_NAME: str = "Orbit API"
     VERSION: str = "1.0.0"
     
-    # Database Configuration (Add these so SQLAlchemy can connect!)
+    # Database Configuration
     SQLALCHEMY_DATABASE_URI: str = "postgresql://orbit_user:orbit_password@localhost:5432/orbit_db"
+
+    # Security Configuration
+    SECRET_KEY: str = "generate-a-super-secret-key-here" 
+    ACCESS_TOKEN_EXPIRE_MINUTES: int = 30
 
     class Config:
         case_sensitive = True
 
-# THIS IS THE CRITICAL LINE THAT IS LIKELY MISSING
 settings = Settings()
